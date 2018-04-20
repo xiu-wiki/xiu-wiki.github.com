@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    
+    <title>360 2018年春招——交易、赛马、玫瑰花 | Xiu&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="360 2018年春招——交易、赛马、玫瑰花">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="题目一交易 题目描述 茉莉发起了一场交易，她将她的5个朋友聚在一起准备进行一场交易。交易开始前，大家各有b(b&amp;gt;0)个硬币，交易后，每个人有ai个硬币。由于硬币不方便携带，在交易过程中可能丢失。现在茉莉想知道是否一定会丢失硬币，或者在可能没有丢失硬币的情况下，交易前每个人的硬币数b。茉莉只是组织者，不参与交易。 输入 第一行一个数T(T&amp;lt;=100)，表示数据组数。  对于每组数据，第一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="360 2018年春招——交易、赛马、玫瑰花">
+<meta property="og:url" content="http://yoursite.com/wiki/Online Judge/0笔试题：2018年春招/index.html">
+<meta property="og:site_name" content="Xiu&#39;s Wiki">
+<meta property="og:description" content="题目一交易 题目描述 茉莉发起了一场交易，她将她的5个朋友聚在一起准备进行一场交易。交易开始前，大家各有b(b&amp;gt;0)个硬币，交易后，每个人有ai个硬币。由于硬币不方便携带，在交易过程中可能丢失。现在茉莉想知道是否一定会丢失硬币，或者在可能没有丢失硬币的情况下，交易前每个人的硬币数b。茉莉只是组织者，不参与交易。 输入 第一行一个数T(T&amp;lt;=100)，表示数据组数。  对于每组数据，第一">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/pasted-44.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-45.png">
+<meta property="og:updated_time" content="2018-04-08T12:07:30.523Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="360 2018年春招——交易、赛马、玫瑰花">
+<meta name="twitter:description" content="题目一交易 题目描述 茉莉发起了一场交易，她将她的5个朋友聚在一起准备进行一场交易。交易开始前，大家各有b(b&amp;gt;0)个硬币，交易后，每个人有ai个硬币。由于硬币不方便携带，在交易过程中可能丢失。现在茉莉想知道是否一定会丢失硬币，或者在可能没有丢失硬币的情况下，交易前每个人的硬币数b。茉莉只是组织者，不参与交易。 输入 第一行一个数T(T&amp;lt;=100)，表示数据组数。  对于每组数据，第一">
+<meta name="twitter:image" content="http://yoursite.com/images/pasted-44.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Xiu&#39;s Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Xiu&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Entradas',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>Categorias</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            CTF
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Web
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/CTF/Web/三届“百越杯”福建省高校网络空间安全大赛——Do-you-know-upload？/">第三届“百越杯”福建省高校网络空间安全大赛——Do you know upload？</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Online Judge
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/wiki/Online Judge/0笔试题：2018年春招/">360 2018年春招——交易、赛马、玫瑰花</a></li>  <li class="file"><a href="/wiki/Online Judge/易2018春招——牛牛找工作/">网易2018春招——牛牛找工作</a></li>  <li class="file"><a href="/wiki/Online Judge/2018春招——牛牛的闹钟/">网易2018春招——牛牛的闹钟</a></li>  <li class="file"><a href="/wiki/Online Judge/360笔试题——2017年春招/">360 2017年春招——分金子</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            STL
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/STL/TL速记——map/">STL速记——map</a></li>  <li class="file"><a href="/wiki/STL/TL速记——sort/">STL速记——sort()</a></li>  <li class="file"><a href="/wiki/STL/TL速记——vector/">STL速记——vector</a></li>  <li class="file"><a href="/wiki/STL/TL速记——对string的各种操作/">STL速记——对string的各种操作</a></li>  <li class="file"><a href="/wiki/STL/L速记/">STL速记——总纲</a></li>  <li class="file"><a href="/wiki/STL/STL速记——upper-bound-和lower-bound/">STL速记——upper_bound()和lower_bound()</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            便签-Cheat Sheet
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            GitHub
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/GitHub/Add a GitHub account/">Add a GitHub Account</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Markdown
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/Markdown/arkdown常用命令速记/">Markdown常用命令速记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MySQL
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/MySQL/Database to txt/">Database to txt</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/Python/Pip install from GitHub/">Pip Install from GitHub</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Ubuntu Shell
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/Ubuntu Shell/sh和sftp的简单使用/">ssh和sftp的简单使用</a></li>  <li class="file"><a href="/wiki/便签-Cheat Sheet/Ubuntu Shell/leaning-Ubuntu/">Cleaning Ubuntu</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据结构与算法-Data Structure and Algorithm
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            动态规划-Dynamic Programming
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/数据结构与算法-Data Structure and Algorithm/动态规划-Dynamic Programming/态规划——Dynamic-Programming/">动态规划学习笔记——Notes on Dynamic Programming</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            排序-Sort
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/数据结构与算法-Data Structure and Algorithm/排序-Sort/Sorting-Algorithm-in-Python/">Sorting Algorithm in Python</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            读书笔记
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            剑指Offer
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/读书笔记/剑指Offer/读书笔记：剑指Offer/">读书笔记：《剑指Offer》第一章</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome to Xiu's Wiki</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Online Judge/0笔试题：2018年春招" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Online-Judge/">Online Judge</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Online Judge/0笔试题：2018年春招/">
+            <time datetime="2018-04-04T14:05:39.000Z" itemprop="datePublished">2018-04-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/xiu-wiki/xiu-wiki.github.com/raw/master/source/_posts/Online Judge/0笔试题：2018年春招.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/xiu-wiki/xiu-wiki.github.com/edit/master/source/_posts/Online Judge/0笔试题：2018年春招.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/xiu-wiki/xiu-wiki.github.com/commits/master/source/_posts/Online Judge/0笔试题：2018年春招.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            360 2018年春招——交易、赛马、玫瑰花
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h2 id="题目一"><a href="#题目一" class="headerlink" title="题目一"></a>题目一</h2><pre><code>交易
+</code></pre><p>题目描述</p>
+<pre><code>茉莉发起了一场交易，她将她的5个朋友聚在一起准备进行一场交易。交易开始前，大家各有b(b&gt;0)个硬币，交易后，每个人有ai个硬币。由于硬币不方便携带，在交易过程中可能丢失。现在茉莉想知道是否一定会丢失硬币，或者在可能没有丢失硬币的情况下，交易前每个人的硬币数b。茉莉只是组织者，不参与交易。
+</code></pre><p>输入</p>
+<pre><code>第一行一个数T(T&lt;=100)，表示数据组数。 
+对于每组数据，第一行5个整数，第i个整数ai表示交易后第i个朋友的硬币数。（0&lt;=ai&lt;=100）
+</code></pre><p>输出</p>
+<pre><code>对于每组数据，输出一行，若一定丢失硬币则输出-1，若尽可能没有丢失，则输出b。
+</code></pre><p>样例输入</p>
+<pre><code>2 
+2 5 4 0 4 
+4 5 9 2 1
+</code></pre><p>样例输出</p>
+<pre><code>3 
+-1
+</code></pre><p>思路</p>
+<pre><code>看起来只要每行加起来模5等于0就没有丢失，比如第一行加起来是15，除以5等于3，第二行加起来是21，除以5除不尽，所以输出-1. 
+注意要考虑全0的情况，全0模5也是0，但是因为b&gt;0，现在全0了，说明一定发生了丢失，所以不能输出0，而应该输出-1.
+</code></pre><p>AC 90% 的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n = 0;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	for (int i = 0; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int a[5] = &#123; 0 &#125;;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		for (int j = 0; j&lt;5; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			scanf(&quot;%d&quot;, &amp;a[j]);</span><br><span class="line">			sum = sum + a[j];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		if (sum % 5 == 0)</span><br><span class="line">		&#123;</span><br><span class="line">			int ans = 0;</span><br><span class="line">			ans = sum / 5;</span><br><span class="line">			printf(&quot;%d\n&quot;, ans);</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;%d\n&quot;, -1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>现在分析，应该是没有考虑全0的情况</strong></p>
+<p>修改后的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n = 0;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	for (int i = 0; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int a[5] = &#123; 0 &#125;;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		for (int j = 0; j&lt;5; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			scanf(&quot;%d&quot;, &amp;a[j]);</span><br><span class="line">			sum = sum + a[j];</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (sum == 0)</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;-1\n&quot;);</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		if (sum % 5 == 0)</span><br><span class="line">		&#123;</span><br><span class="line">			int ans = 0;</span><br><span class="line">			ans = sum / 5;</span><br><span class="line">			printf(&quot;%d\n&quot;, ans);</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;%d\n&quot;, -1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题目二"><a href="#题目二" class="headerlink" title="题目二"></a>题目二</h2><pre><code>赛马
+</code></pre><p>题目描述</p>
+<pre><code>茉莉有2n匹马，每匹马都有一个速度v，现在茉莉将马分为两个队伍，每个队伍各有n匹马，两个队之间进行n场比赛，每场比赛两队各派出一匹马参赛，每匹马都恰好出场一次。茉莉想知道是否存在一种分配队伍的方法使得无论怎么安排比赛，第一个队伍都一定能获的全胜，两匹马若速度一样，那么速度快的获胜，若速度一样，则都有可能获胜。
+</code></pre><p>输入</p>
+<pre><code>第一行一个数T(T&lt;=100)，表示数据组数。 
+对于每组数据，第一行一个整数n，(1&lt;=n&lt;=100) 
+接下来一行，2n个整数，第i个整数vi表示第i匹马的速度（1&lt;=vi&lt;=1000）
+</code></pre><p>输出</p>
+<pre><code>对于每组数据，输出一行，若存在一种分配方法使得第一个队伍全胜输出YES，否则输出NO
+</code></pre><p>样例输入</p>
+<pre><code>2 
+2 
+1 2 3 4 
+1 
+1 1
+</code></pre><p>样例输出</p>
+<pre><code>YES 
+NO
+</code></pre><p>思路：</p>
+<pre><code>先将数组排序，分成两半（各n），若左边最后一个元素小于右边第一个元素，就能保证不管怎么比赛都能全胜。
+</code></pre><p>基于vector的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include&lt;vector&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n = 0;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	for (int i = 0; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int k = 0;</span><br><span class="line">		scanf(&quot;%d&quot;, &amp;k);</span><br><span class="line">		vector &lt;int&gt; a;</span><br><span class="line">		int num = pow(2,k);</span><br><span class="line">		for (int j = 0; j&lt;num; j++)</span><br><span class="line">		&#123;			</span><br><span class="line">			int input = 0;</span><br><span class="line">			scanf(&quot;%d&quot;, &amp;input);</span><br><span class="line">			a.push_back(input);</span><br><span class="line">		&#125;</span><br><span class="line">		sort(a.begin(), a.end());</span><br><span class="line"></span><br><span class="line">		//找到中点</span><br><span class="line"></span><br><span class="line">		int k1 = a.size() / 2;</span><br><span class="line"></span><br><span class="line">		if (a.at(k1 - 1) &lt; a.at(k1))</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;YES\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;NO\n&quot;);</span><br><span class="line">		&#125;		</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="玫瑰花"><a href="#玫瑰花" class="headerlink" title="玫瑰花"></a>玫瑰花</h2><p>题目描述</p>
+<pre><code>有K种不同的玫瑰花，现在要摆放在N各位置，要求每种颜色的花至少出现过一次，请问有多少种不同的方案数呢？因为答案可能很大，你需要输出它对772235取余后的结果。
+</code></pre><p>输入</p>
+<pre><code>输入只有1行，分别有两个整数N，K（1&lt;=N&lt;=50000，1&lt;=K&lt;=30）
+</code></pre><p>输出</p>
+<pre><code>输出一行表示答案
+</code></pre><p>样例输入</p>
+<pre><code>3 2
+</code></pre><p>样例输出</p>
+<pre><code>6
+</code></pre><p>题目分析：</p>
+<p><img src="/images/pasted-44.png" alt="upload successful"></p>
+<p>C++动态分配二维数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  int row = 0;</span><br><span class="line">int col = 0;</span><br><span class="line">scanf(&quot;%d %d&quot;,)</span><br><span class="line">int** array = new int*[row];</span><br><span class="line">for (int i = 0; i&lt;row; i++)</span><br><span class="line">&#123;</span><br><span class="line">	array[i] = new int[col];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>C++释放动态分配的二维数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  int row = 0;</span><br><span class="line">int col = 0;</span><br><span class="line">scanf(&quot;%d %d&quot;,)</span><br><span class="line">int** array = new int*[row];</span><br><span class="line">for (int i = 0; i&lt;row; i++)</span><br><span class="line">&#123;</span><br><span class="line">	array[i] = new int[col];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0; i&lt;row; i++)   </span><br><span class="line">&#123;  </span><br><span class="line">  delete[] array[i];  </span><br><span class="line"> &#125;  </span><br><span class="line"> delete[] array;</span><br></pre></td></tr></table></figure>
+<p>整体代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int N = 0;</span><br><span class="line">	int K = 0;</span><br><span class="line">	scanf(&quot;%d %d&quot;, &amp;N, &amp;K);</span><br><span class="line">	if (N &lt; K)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d\n&quot;, 0);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		if (N == K)</span><br><span class="line">		&#123;</span><br><span class="line">			int res = 1;</span><br><span class="line">			for (int j = K; j &gt; 0; j--)</span><br><span class="line">			&#123;</span><br><span class="line">				res = res*j;</span><br><span class="line">			&#125;</span><br><span class="line">			printf(&quot;%d\n&quot;, res);</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			int** DP = new int*[N+1];</span><br><span class="line">			for (int i = 0; i&lt;=N; i++)</span><br><span class="line">			&#123;</span><br><span class="line">				DP[i] = new int[2];</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			for (int i = 0; i&lt;=N; i++)</span><br><span class="line">				DP[i][0] = 0;</span><br><span class="line">			DP[0][1] = 0;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			for (int k = 1; k&lt;=K; k++)</span><br><span class="line">			&#123;</span><br><span class="line">				//确定递推开始的“头部”</span><br><span class="line"></span><br><span class="line">				int res = 1;</span><br><span class="line">				for (int j = k; j &gt; 0; j--)</span><br><span class="line">				&#123;</span><br><span class="line">					res = res*j;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				DP[k][k % 2] = res;</span><br><span class="line"></span><br><span class="line">				for (int n = k + 1; n&lt;=N; n++)</span><br><span class="line">				&#123;</span><br><span class="line">					if ((k % 2) == 1) </span><br><span class="line">					&#123;//此时i是奇数</span><br><span class="line">						DP[n][1] = k*(DP[n - 1][1] + DP[n - 1][0]);</span><br><span class="line">						//printf(&quot;%d&quot;,DP[n][1]);</span><br><span class="line">					&#125;</span><br><span class="line">					else </span><br><span class="line">					&#123;</span><br><span class="line">						DP[n][0] = k*(DP[n - 1][0] + DP[n - 1][1]);</span><br><span class="line">						//printf(&quot;%d&quot;, DP[n][0]);</span><br><span class="line">					&#125;</span><br><span class="line">					//printf(&quot;End of loop %d&quot;, n);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			printf(&quot;%d\n&quot;,DP[N][K%2]);</span><br><span class="line"></span><br><span class="line">			for (int i = 0; i&lt;=N; i++)</span><br><span class="line">			&#123;</span><br><span class="line">				delete[] DP[i];</span><br><span class="line">			&#125;</span><br><span class="line">			delete[] DP;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-45.png" alt="upload successful"></p>
+<p><strong>注意：这个表格是[0,N]和[0,K]，共N+1行，K+1列，所以分配内存的时候要分配N+1和K+1，循环里要用&lt;=</strong></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/Online Judge/360笔试题——2017年春招/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más nuevo</strong>
+            <div class="article-nav-title">
+                
+                    360 2017年春招——分金子
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/STL/TL速记——sort/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más viejo</strong>
+            <div class="article-nav-title">STL速记——sort()</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Xiu &copy; 2018 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
