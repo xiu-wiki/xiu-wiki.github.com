@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    
+    <title>360 2017春招——任务列表 | Xiu&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="360 2017春招——任务列表">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="这道题目只需要懂得STL的基本使用：vector，sort()，upper_bound()，lower_bound()之类的。 题目描述 现在现在有一台机器，这台机器可以接收两种形式任务：（1）任务列表，任务列表里面有N个任务，对于第i个任务，机器在Ti时间开始执行，并在1个单位时间内做完。（2）临时任务，机器可以在任意时间接收一个临时任务，但任务列表里面的任务优先级要高于临时任务，也就是说当机器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="360 2017春招——任务列表">
+<meta property="og:url" content="http://yoursite.com/wiki/Online Judge/60-2017春招——任务列表/index.html">
+<meta property="og:site_name" content="Xiu&#39;s Wiki">
+<meta property="og:description" content="这道题目只需要懂得STL的基本使用：vector，sort()，upper_bound()，lower_bound()之类的。 题目描述 现在现在有一台机器，这台机器可以接收两种形式任务：（1）任务列表，任务列表里面有N个任务，对于第i个任务，机器在Ti时间开始执行，并在1个单位时间内做完。（2）临时任务，机器可以在任意时间接收一个临时任务，但任务列表里面的任务优先级要高于临时任务，也就是说当机器">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-20T15:09:45.090Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="360 2017春招——任务列表">
+<meta name="twitter:description" content="这道题目只需要懂得STL的基本使用：vector，sort()，upper_bound()，lower_bound()之类的。 题目描述 现在现在有一台机器，这台机器可以接收两种形式任务：（1）任务列表，任务列表里面有N个任务，对于第i个任务，机器在Ti时间开始执行，并在1个单位时间内做完。（2）临时任务，机器可以在任意时间接收一个临时任务，但任务列表里面的任务优先级要高于临时任务，也就是说当机器">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Xiu&#39;s Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-120196052-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d16a6f954f7c96a98b470ff85694a2a9";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Xiu&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'pos',
+            PAGES: 'Pages',
+            CATEGORIES: 'kategori',
+            TAGS: 'tag',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>kategori</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            CTF
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Web
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            文件包含-File Inclusion
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/CTF/Web/文件包含-File Inclusion/三届“百越杯”福建省高校网络空间安全大赛——Do-you-know-upload？/">第三届“百越杯”福建省高校网络空间安全大赛——Do you know upload？</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Online Judge
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Online Judge/0笔试题：2018年春招/">360 2018年春招——交易、赛马、玫瑰花</a></li>  <li class="file"><a href="/wiki/Online Judge/2018春招——牛牛的闹钟/">网易2018春招——牛牛的闹钟</a></li>  <li class="file active"><a href="/wiki/Online Judge/60-2017春招——任务列表/">360 2017春招——任务列表</a></li>  <li class="file"><a href="/wiki/Online Judge/360笔试题——2017年春招/">360 2017年春招——分金子</a></li>  <li class="file"><a href="/wiki/Online Judge/易2018春招——牛牛找工作/">网易2018春招——牛牛找工作</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            STL
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/STL/L速记/">STL速记——总纲</a></li>  <li class="file"><a href="/wiki/STL/TL速记——vector/">STL速记——vector</a></li>  <li class="file"><a href="/wiki/STL/TL速记——对string的各种操作/">STL速记——对string的各种操作</a></li>  <li class="file"><a href="/wiki/STL/STL速记——upper-bound-和lower-bound/">STL速记——upper_bound()和lower_bound()</a></li>  <li class="file"><a href="/wiki/STL/TL速记——map/">STL速记——map</a></li>  <li class="file"><a href="/wiki/STL/TL速记——sort/">STL速记——sort()</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            便签-Cheat Sheet
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            GitHub
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/GitHub/Add a GitHub account/">Add a GitHub Account</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Markdown
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/Markdown/arkdown常用命令速记/">Markdown常用命令速记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MySQL
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/MySQL/Database to txt/">Database to txt</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/Python/Pip install from GitHub/">Pip Install from GitHub</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Ubuntu Shell
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/Ubuntu Shell/sh和sftp的简单使用/">ssh和sftp的简单使用</a></li>  <li class="file"><a href="/wiki/便签-Cheat Sheet/Ubuntu Shell/leaning-Ubuntu/">Cleaning Ubuntu</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据结构与算法-Data Structure and Algorithm
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            动态规划-Dynamic Programming
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/数据结构与算法-Data Structure and Algorithm/动态规划-Dynamic Programming/态规划——Dynamic-Programming/">动态规划学习笔记——Notes on Dynamic Programming</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            排序-Sort
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/数据结构与算法-Data Structure and Algorithm/排序-Sort/Sorting-Algorithm-in-Python/">Sorting Algorithm in Python</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            深度学习-Deep Learning
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            CNN
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/深度学习-Deep Learning/CNN/记：MobileNet，尺度和语义增强的语义分割，通过可见框增强全框，语义分割联合物体检测/">笔记：MobileNet，尺度和语义增强的语义分割，通过可见框增强全框，语义分割联合物体检测</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            LSTM
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/深度学习-Deep Learning/LSTM/-Critical-Review-of-Recurrent-Neural-Networks-for-Sequence-Learning/">A Critical Review of Recurrent Neural Networks for Sequence Learning</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            读书笔记
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            《机器学习》——周志华”西瓜书“
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/读书笔记/《机器学习》——周志华”西瓜书“/2章模型评估与选择/">周志华《机器学习》读书笔记-第2章-模型评估与选择</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            剑指Offer
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/读书笔记/剑指Offer/读书笔记：剑指Offer/">读书笔记：《剑指Offer》第一章</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome to Xiu's Wiki</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Online Judge/60-2017春招——任务列表" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Online-Judge/">Online Judge</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Online Judge/60-2017春招——任务列表/">
+            <time datetime="2018-04-20T14:56:59.000Z" itemprop="datePublished">2018-04-20</time>
+        </a>
+    </div>
+
+
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/xiu-wiki/xiu-wiki.github.com/raw/master/source/_posts/Online Judge/60-2017春招——任务列表.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/xiu-wiki/xiu-wiki.github.com/edit/master/source/_posts/Online Judge/60-2017春招——任务列表.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/xiu-wiki/xiu-wiki.github.com/commits/master/source/_posts/Online Judge/60-2017春招——任务列表.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            360 2017春招——任务列表
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>这道题目只需要懂得STL的基本使用：vector，sort()，upper_bound()，lower_bound()之类的。</p>
+<p>题目描述</p>
+<pre><code>现在现在有一台机器，这台机器可以接收两种形式任务：（1）任务列表，任务列表里面有N个任务，对于第i个任务，机器在Ti时间开始执行，并在1个单位时间内做完。（2）临时任务，机器可以在任意时间接收一个临时任务，但任务列表里面的任务优先级要高于临时任务，也就是说当机器空闲的时候才会执行临时任务。
+
+现在机器已经接收一个任务列表。接下来会有M个临时任务，我们想知道每个临时任务何时被执行。为了简化问题我们可以认为这M个临时任务是独立无关即任务是可以同时执行的，互不影响的。
+</code></pre><p>输入</p>
+<pre><code>输入数据有多组，每组数据第一行包括两个整数N和M（1&lt;=N, M&lt;=10^5）。
+接下来一行有N个不同数字T1,T2,T3.....TN（1&lt;=T1）
+接下来又M行，每行一个数字Qi（1&lt;=Qi&lt;=10^9），表示第i个临时任务的的接收时间。
+</code></pre><p>样例输入</p>
+<pre><code>5 6
+1 2 3 5 6
+3
+2
+1
+4
+5
+6
+</code></pre><p>输出</p>
+<pre><code>对于每个临时任务，输出它被执行的时间。
+</code></pre><p>样例输出</p>
+<pre><code>4
+4
+4
+4
+7
+7
+</code></pre><p>时间限制</p>
+<pre><code>C/C++语言：2000MS其它语言：4000MS    
+</code></pre><p>内存限制</p>
+<pre><code>C/C++语言：32768KB其它语言：557056KB
+</code></pre><p>思路：</p>
+<p>（1）找到空闲</p>
+<p>怎么找？【1】排序sort()；【2】因为输入的是不同的数字，只要在“1”到“最大开始时间+1”（最后一个任务的下一个）中间，在任务列表里面不存在的，就是空闲。</p>
+<p>（2）将“临时任务”插入“空闲表”里面能插进的第一个元素：用lower_bound()-&gt;能插入的第一个位置的元素</p>
+<p>Tips:</p>
+<p><strong>以后遇到upper_bound()，lower_bound()分不清楚的，可以直接把upper_bound()，lower_bound()，upper_bound()±1，lower_bound()±1都试一遍。</strong></p>
+<p>AC代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;iterator&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	vector&lt;int&gt; tasks;</span><br><span class="line">	vector&lt;int&gt; spare;</span><br><span class="line">	int n = 0;</span><br><span class="line">	int m = 0;</span><br><span class="line">	scanf(&quot;%d %d&quot;, &amp;n, &amp;m);</span><br><span class="line"></span><br><span class="line">	for (int i = 0; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int task = 0;</span><br><span class="line">		cin &gt;&gt; task;</span><br><span class="line">		tasks.push_back(task);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(tasks.begin(),tasks.end());</span><br><span class="line">	int largest = tasks.back();</span><br><span class="line">	for (int i = 1; i &lt;= largest+1; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		vector&lt;int&gt;::iterator s = find(tasks.begin(), tasks.end(), i);</span><br><span class="line">		if (s == tasks.end())</span><br><span class="line">		&#123;</span><br><span class="line">			spare.push_back(i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	vector&lt;int&gt;::iterator location;</span><br><span class="line">	for (int i = 0; i &lt; m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int temp = 0;</span><br><span class="line">		cin &gt;&gt; temp;</span><br><span class="line">		location = lower_bound(spare.begin(), spare.end(), temp);</span><br><span class="line">		cout &lt;&lt; spare[location-spare.begin()]&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/读书笔记/《机器学习》——周志华”西瓜书“/2章模型评估与选择/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Lebih baru</strong>
+            <div class="article-nav-title">
+                
+                    周志华《机器学习》读书笔记-第2章-模型评估与选择
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/STL/TL速记——对string的各种操作/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Lebih Tua</strong>
+            <div class="article-nav-title">STL速记——对string的各种操作</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Xiu &copy; 2018 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
