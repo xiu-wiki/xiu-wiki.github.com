@@ -184,14 +184,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
+    <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2017-10-19T22:35:58.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2017-10-19T22:35:58.000Z</lastmod>
     
