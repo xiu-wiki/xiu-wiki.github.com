@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    
+    <title>图的拓扑排序和关键路径 | Xiu&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="图的拓扑排序和关键路径">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="AOV图和基本的拓扑排序 利用队列的拓扑排序 关键路径权重为0的虚边表示，每条边（活动）的持续时间是固定的 前向累加，计算每个顶点的最早完成时间最早完成时间 -&amp;gt; 从前面的活动分秒不差地推到这个活动，直到完成这个活动需要的时间 反向传播，计算每个顶点的最晚完成时间最晚完成时间 -&amp;gt; 从后面的活动向前推，需要这个活动最晚什么时候完成 机动时间（活动或边）-&amp;gt; 活动后面顶点的最晚完成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图的拓扑排序和关键路径">
+<meta property="og:url" content="http://yoursite.com/wiki/数据结构与算法-Data Structure and Algorithm/图-Graph/拓扑排序和关键路径/index.html">
+<meta property="og:site_name" content="Xiu&#39;s Wiki">
+<meta property="og:description" content="AOV图和基本的拓扑排序 利用队列的拓扑排序 关键路径权重为0的虚边表示，每条边（活动）的持续时间是固定的 前向累加，计算每个顶点的最早完成时间最早完成时间 -&amp;gt; 从前面的活动分秒不差地推到这个活动，直到完成这个活动需要的时间 反向传播，计算每个顶点的最晚完成时间最晚完成时间 -&amp;gt; 从后面的活动向前推，需要这个活动最晚什么时候完成 机动时间（活动或边）-&amp;gt; 活动后面顶点的最晚完成">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/pasted-88.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-89.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-90.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-91.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-92.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-93.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-94.png">
+<meta property="og:image" content="http://i.imgur.com/gLjyFMn.png">
+<meta property="og:image" content="http://i.imgur.com/0k9Luqr.png">
+<meta property="og:image" content="http://i.imgur.com/D602Dh3.png">
+<meta property="og:image" content="http://i.imgur.com/dH9tbMv.png">
+<meta property="og:image" content="http://i.imgur.com/BJpeYut.png">
+<meta property="og:updated_time" content="2018-06-19T10:13:42.393Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图的拓扑排序和关键路径">
+<meta name="twitter:description" content="AOV图和基本的拓扑排序 利用队列的拓扑排序 关键路径权重为0的虚边表示，每条边（活动）的持续时间是固定的 前向累加，计算每个顶点的最早完成时间最早完成时间 -&amp;gt; 从前面的活动分秒不差地推到这个活动，直到完成这个活动需要的时间 反向传播，计算每个顶点的最晚完成时间最晚完成时间 -&amp;gt; 从后面的活动向前推，需要这个活动最晚什么时候完成 机动时间（活动或边）-&amp;gt; 活动后面顶点的最晚完成">
+<meta name="twitter:image" content="http://yoursite.com/images/pasted-88.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Xiu&#39;s Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-120196052-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d16a6f954f7c96a98b470ff85694a2a9";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+</html>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2864385224910565",
+    enable_page_level_ads: true
+  });
+</script>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Xiu&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Entradas',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>Categorias</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            CTF
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Web
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            文件包含-File Inclusion
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/CTF/Web/文件包含-File Inclusion/三届“百越杯”福建省高校网络空间安全大赛——Do-you-know-upload？/">第三届“百越杯”福建省高校网络空间安全大赛——Do you know upload？</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Online Judge
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Online Judge/2018春招——牛牛的闹钟/">网易2018春招——牛牛的闹钟</a></li>  <li class="file"><a href="/wiki/Online Judge/0笔试题：2018年春招/">360 2018年春招——交易、赛马、玫瑰花</a></li>  <li class="file"><a href="/wiki/Online Judge/360笔试题——2017年春招/">360 2017年春招——分金子</a></li>  <li class="file"><a href="/wiki/Online Judge/60-2017春招——任务列表/">360 2017春招——任务列表</a></li>  <li class="file"><a href="/wiki/Online Judge/易2018春招——牛牛找工作/">网易2018春招——牛牛找工作</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            STL
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/STL/L速记/">STL速记——总纲</a></li>  <li class="file"><a href="/wiki/STL/TL速记——map/">STL速记——map</a></li>  <li class="file"><a href="/wiki/STL/STL速记——upper-bound-和lower-bound/">STL速记——upper_bound()和lower_bound()</a></li>  <li class="file"><a href="/wiki/STL/TL速记——sort/">STL速记——sort()</a></li>  <li class="file"><a href="/wiki/STL/TL速记——对string的各种操作/">STL速记——对string的各种操作</a></li>  <li class="file"><a href="/wiki/STL/TL速记——vector/">STL速记——vector</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            便签-Cheat Sheet
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            GitHub
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/GitHub/Add a GitHub account/">Add a GitHub Account</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Markdown
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/Markdown/arkdown常用命令速记/">Markdown常用命令速记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MySQL
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/MySQL/Database to txt/">Database to txt</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/Python/Pip install from GitHub/">Pip Install from GitHub</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Ubuntu Shell
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/便签-Cheat Sheet/Ubuntu Shell/leaning-Ubuntu/">Cleaning Ubuntu</a></li>  <li class="file"><a href="/wiki/便签-Cheat Sheet/Ubuntu Shell/sh和sftp的简单使用/">ssh和sftp的简单使用</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            数据结构与算法-Data Structure and Algorithm
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            优先队列（堆）-Priority Queue (Heap)
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/数据结构与算法-Data Structure and Algorithm/优先队列（堆）-Priority Queue (Heap)/的插入、删除和建立-哈夫曼树/">堆的插入、删除和建立+哈夫曼树</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            动态规划-Dynamic Programming
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/数据结构与算法-Data Structure and Algorithm/动态规划-Dynamic Programming/态规划——Dynamic-Programming/">动态规划学习笔记——Notes on Dynamic Programming</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            图-Graph
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/数据结构与算法-Data Structure and Algorithm/图-Graph/最短路径问题-无权图的单源最短路径（BFS）、有权图的单源最短路径（Dijkstra）、多源最短路经（Floyd）/">图的最短路径问题-无权图的单源最短路径（BFS）、有权图的单源最短路径（Dijkstra）、多源最短路经（Floyd）</a></li>  <li class="file"><a href="/wiki/数据结构与算法-Data Structure and Algorithm/图-Graph/据结构-学习笔记-图/">图的基本概念，图的两种表示方法（邻接矩阵、邻接表），深度优先遍历和广度优先遍历</a></li>  <li class="file active"><a href="/wiki/数据结构与算法-Data Structure and Algorithm/图-Graph/拓扑排序和关键路径/">图的拓扑排序和关键路径</a></li>  <li class="file"><a href="/wiki/数据结构与算法-Data Structure and Algorithm/图-Graph/的最小生成树-Prim算法和Kruskal算法/">图的最小生成树-Prim算法和Kruskal算法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            排序-Sort
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/数据结构与算法-Data Structure and Algorithm/排序-Sort/Sorting-Algorithm-in-Python/">Sorting Algorithm in Python</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            深度学习-Deep Learning
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            CNN
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/深度学习-Deep Learning/CNN/记：MobileNet，尺度和语义增强的语义分割，通过可见框增强全框，语义分割联合物体检测/">笔记：MobileNet，尺度和语义增强的语义分割，通过可见框增强全框，语义分割联合物体检测</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            LSTM
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/深度学习-Deep Learning/LSTM/-Critical-Review-of-Recurrent-Neural-Networks-for-Sequence-Learning/">A Critical Review of Recurrent Neural Networks for Sequence Learning</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            读书笔记
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            《机器学习》——周志华”西瓜书“
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/读书笔记/《机器学习》——周志华”西瓜书“/2章模型评估与选择/">周志华《机器学习》读书笔记-第2章-模型评估与选择</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            剑指Offer
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/读书笔记/剑指Offer/读书笔记：剑指Offer/">读书笔记：《剑指Offer》第一章</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome to Xiu's Wiki</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-数据结构与算法-Data Structure and Algorithm/图-Graph/拓扑排序和关键路径" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/数据结构与算法-Data-Structure-and-Algorithm/">数据结构与算法-Data Structure and Algorithm</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据结构与算法-Data-Structure-and-Algorithm/图-Graph/">图-Graph</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/数据结构与算法-Data Structure and Algorithm/图-Graph/拓扑排序和关键路径/">
+            <time datetime="2018-06-19T08:41:37.000Z" itemprop="datePublished">2018-06-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/xiu-wiki/xiu-wiki.github.com/raw/master/source/_posts/数据结构与算法-Data Structure and Algorithm/图-Graph/拓扑排序和关键路径.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/xiu-wiki/xiu-wiki.github.com/edit/master/source/_posts/数据结构与算法-Data Structure and Algorithm/图-Graph/拓扑排序和关键路径.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/xiu-wiki/xiu-wiki.github.com/commits/master/source/_posts/数据结构与算法-Data Structure and Algorithm/图-Graph/拓扑排序和关键路径.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            图的拓扑排序和关键路径
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h2 id="AOV图和基本的拓扑排序"><a href="#AOV图和基本的拓扑排序" class="headerlink" title="AOV图和基本的拓扑排序"></a>AOV图和基本的拓扑排序</h2><p><img src="/images/pasted-88.png" alt="AOV图和基本的拓扑排序"></p>
+<h2 id="利用队列的拓扑排序"><a href="#利用队列的拓扑排序" class="headerlink" title="利用队列的拓扑排序"></a>利用队列的拓扑排序</h2><p><img src="/images/pasted-89.png" alt="利用队列的拓扑排序"></p>
+<h2 id="关键路径权重为0的虚边表示，每条边（活动）的持续时间是固定的"><a href="#关键路径权重为0的虚边表示，每条边（活动）的持续时间是固定的" class="headerlink" title="关键路径权重为0的虚边表示，每条边（活动）的持续时间是固定的"></a>关键路径权重为0的虚边表示，每条边（活动）的持续时间是固定的</h2><p><img src="/images/pasted-90.png" alt="关键路径权重为0的虚边表示"></p>
+<h2 id="前向累加，计算每个顶点的最早完成时间"><a href="#前向累加，计算每个顶点的最早完成时间" class="headerlink" title="前向累加，计算每个顶点的最早完成时间"></a>前向累加，计算每个顶点的最早完成时间</h2><h2 id="最早完成时间-gt-从前面的活动分秒不差地推到这个活动，直到完成这个活动需要的时间"><a href="#最早完成时间-gt-从前面的活动分秒不差地推到这个活动，直到完成这个活动需要的时间" class="headerlink" title="最早完成时间 -&gt; 从前面的活动分秒不差地推到这个活动，直到完成这个活动需要的时间"></a>最早完成时间 -&gt; 从前面的活动分秒不差地推到这个活动，直到完成这个活动需要的时间</h2><p><img src="/images/pasted-91.png" alt="前向累加，计算每个顶点的最早完成时间"></p>
+<h2 id="反向传播，计算每个顶点的最晚完成时间"><a href="#反向传播，计算每个顶点的最晚完成时间" class="headerlink" title="反向传播，计算每个顶点的最晚完成时间"></a>反向传播，计算每个顶点的最晚完成时间</h2><h2 id="最晚完成时间-gt-从后面的活动向前推，需要这个活动最晚什么时候完成"><a href="#最晚完成时间-gt-从后面的活动向前推，需要这个活动最晚什么时候完成" class="headerlink" title="最晚完成时间 -&gt; 从后面的活动向前推，需要这个活动最晚什么时候完成"></a>最晚完成时间 -&gt; 从后面的活动向前推，需要这个活动最晚什么时候完成</h2><p><img src="/images/pasted-92.png" alt="反向传播，计算每个顶点的最晚完成时间"></p>
+<h2 id="机动时间（活动或边）-gt-活动后面顶点的最晚完成时间-活动前面顶点的最早完成时间"><a href="#机动时间（活动或边）-gt-活动后面顶点的最晚完成时间-活动前面顶点的最早完成时间" class="headerlink" title="机动时间（活动或边）-&gt; 活动后面顶点的最晚完成时间 - 活动前面顶点的最早完成时间"></a>机动时间（活动或边）-&gt; 活动后面顶点的最晚完成时间 - 活动前面顶点的最早完成时间</h2><p>顶点的最晚完成时间：到这个时间，这个顶点前面的所有活动都需要完成，（从后向前的需要）。</p>
+<p>顶点的最晚完成时间：指向这个顶点的活动必须完成。</p>
+<p>顶点的最早完成时间：到这个时间，这个顶点前面的所有活动都能够完成，（从前向后的推导）。</p>
+<p>顶点的最早完成时间：从这个顶点出发的活动可以开始进行。</p>
+<h2 id="机动时间（活动或边）-gt-活动后面顶点的最晚完成时间-活动前面顶点的最早完成时间-1"><a href="#机动时间（活动或边）-gt-活动后面顶点的最晚完成时间-活动前面顶点的最早完成时间-1" class="headerlink" title="机动时间（活动或边）-&gt; 活动后面顶点的最晚完成时间 - 活动前面顶点的最早完成时间"></a>机动时间（活动或边）-&gt; 活动后面顶点的最晚完成时间 - 活动前面顶点的最早完成时间</h2><p><img src="/images/pasted-93.png" alt="机动时间（活动或边）-&gt; 活动后面顶点的最晚完成时间 - 活动前面顶点的最早完成时间"></p>
+<h2 id="关键路径：没有机动时间的路径（工期一天都不能差的路径）"><a href="#关键路径：没有机动时间的路径（工期一天都不能差的路径）" class="headerlink" title="关键路径：没有机动时间的路径（工期一天都不能差的路径）"></a>关键路径：没有机动时间的路径（工期一天都不能差的路径）</h2><p><img src="/images/pasted-94.png" alt="关键路径：没有机动时间的路径（工期一天都不能差的路径）"></p>
+<h2 id="拓扑排序（AOV网络）"><a href="#拓扑排序（AOV网络）" class="headerlink" title="拓扑排序（AOV网络）"></a>拓扑排序（AOV网络）</h2><ul>
+<li><p>排课的时候，根据课程的难易程度及知识体系有些课是要先上有些课需要后上，那么在给定了一些课的先后顺序，我们怎样来安排这些课的总体顺序呢？</p>
+</li>
+<li><p>实际中拓扑排序的应用必入<strong>关键路径问题</strong>，一般用于安排项目的工序。</p>
+</li>
+<li><p>首先明确下拓扑序的概念：如果图中从v到w有一条有向路径，则v一定排在w之前。满足此条件的顶点序列称为一个拓扑序。<br><img src="http://i.imgur.com/gLjyFMn.png" alt=""></p>
+</li>
+<li><p>AOV如果有合理的拓扑序，必定是有向无环图。</p>
+</li>
+<li><p>具体我们怎么实现算法呢？简单的可以直接：<br>&gt;<br>每次都选择入度为0的顶点，并把它和它的边一起从图中删除。<br>删除其事就是将与它相邻的顶点的入度减一。<br>算法的效率很大部分决定于找到入度为0的点，但是当图是稀疏图时，顺序扫描的方法就显得效率低下。那么有没有更好的办法呢？</p>
+</li>
+</ul>
+<p><img src="http://i.imgur.com/0k9Luqr.png" alt=""></p>
+<ul>
+<li>一种很好的方法就是将入度为0的顶点放入一个容器中（栈或队列），然后没将相邻点入度减一的同时检查它的入度是否降为0，是的话就放入容器中。</li>
+</ul>
+<p><img src="http://i.imgur.com/D602Dh3.png" alt=""></p>
+<h3 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 邻接表存储 - 拓扑排序算法 */</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">TopSort</span><span class="params">( LGraph Graph, Vertex TopOrder[] )</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">/* 对Graph进行拓扑排序,  TopOrder[]顺序存储排序后的顶点下标 */</span></span><br><span class="line">    <span class="keyword">int</span> Indegree[MaxVertexNum], cnt;</span><br><span class="line">    Vertex V;</span><br><span class="line">    PtrToAdjVNode W;</span><br><span class="line">       Queue Q = CreateQueue( Graph-&gt;Nv );</span><br><span class="line">  </span><br><span class="line">    <span class="comment">/* 初始化Indegree[] */</span></span><br><span class="line">    <span class="keyword">for</span> (V=<span class="number">0</span>; V&lt;Graph-&gt;Nv; V++)</span><br><span class="line">        Indegree[V] = <span class="number">0</span>;</span><br><span class="line">         </span><br><span class="line">    <span class="comment">/* 遍历图，得到Indegree[] */</span></span><br><span class="line">    <span class="keyword">for</span> (V=<span class="number">0</span>; V&lt;Graph-&gt;Nv; V++)</span><br><span class="line">        <span class="keyword">for</span> (W=Graph-&gt;G[V].FirstEdge; W; W=W-&gt;Next)</span><br><span class="line">            Indegree[W-&gt;AdjV]++; <span class="comment">/* 对有向边&lt;V, W-&gt;AdjV&gt;累计终点的入度 */</span></span><br><span class="line">             </span><br><span class="line">    <span class="comment">/* 将所有入度为0的顶点入列 */</span></span><br><span class="line">    <span class="keyword">for</span> (V=<span class="number">0</span>; V&lt;Graph-&gt;Nv; V++)</span><br><span class="line">        <span class="keyword">if</span> ( Indegree[V]==<span class="number">0</span> )</span><br><span class="line">            AddQ(Q, V);</span><br><span class="line">             </span><br><span class="line">    <span class="comment">/* 下面进入拓扑排序 */</span> </span><br><span class="line">    cnt = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">while</span>( !IsEmpty(Q) )&#123;</span><br><span class="line">        V = DeleteQ(Q); <span class="comment">/* 弹出一个入度为0的顶点 */</span></span><br><span class="line">        TopOrder[cnt++] = V; <span class="comment">/* 将之存为结果序列的下一个元素 */</span></span><br><span class="line">        <span class="comment">/* 对V的每个邻接点W-&gt;AdjV */</span></span><br><span class="line">        <span class="keyword">for</span> ( W=Graph-&gt;G[V].FirstEdge; W; W=W-&gt;Next )</span><br><span class="line">            <span class="keyword">if</span> ( --Indegree[W-&gt;AdjV] == <span class="number">0</span> )<span class="comment">/* 若删除V使得W-&gt;AdjV入度为0 */</span></span><br><span class="line">                AddQ(Q, W-&gt;AdjV); <span class="comment">/* 则该顶点入列 */</span> </span><br><span class="line">    &#125; <span class="comment">/* while结束*/</span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">if</span> ( cnt != Graph-&gt;Nv )</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">/* 说明图中有回路, 返回不成功标志 */</span> </span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="拓扑排序的应用–关键路径问题（AOE网络）"><a href="#拓扑排序的应用–关键路径问题（AOE网络）" class="headerlink" title="拓扑排序的应用–关键路径问题（AOE网络）"></a>拓扑排序的应用–关键路径问题（AOE网络）</h3><ul>
+<li><p>用顶点表示活动，用弧表示活动间的优先关系的有向图：称为顶点表示活动的网（Activity On Vertex Network），简称为AOV网。</p>
+</li>
+<li><p>与AOV网对应的是AOE（Activity On Edge）网即边表示活动的网。AOE网是一个带权的有向无环图。网中只有一个入度为零的点（称为源点）和一个出度为零的点（称为汇点）。其中，顶点表示事件（Event），弧表示活动，权表示活动持续的时间。</p>
+</li>
+<li><p>通常，AOE网可用来估算工程的完成时间。<br>&gt;<br>假如汽车生产工厂要制造一辆汽车，制造过程的大概事件和活动时间如上图AOE网：我们把路径上各个活动所持续的时间之和称为路径长度，从源点到汇点具有最大长度的路径叫关键路径，在关键路径上的活动叫关键活动。那么，显然对上图AOE网而言,所谓关键路径：开始–&gt;发动机完成–&gt;部件集中到位–&gt;组装完成。路径长度为5.5。如果我们试图缩短整个工期，去改进轮子的生产效率，哪怕改动0.1也是无益的。只有缩短关键路径上的关键活动时间才可以减少整个工期的长度。例如如果制造发动机缩短为2.5天，整车组装缩短为1.5天，那么关键路径为4.5。工期也就整整缩短了一天时间。好吧！ 那么研究这个关键路径意义何在？</p>
+</li>
+</ul>
+<blockquote>
+<p>假定上图AOE网中弧的权值单位为小时，而且我们已经知道黑深色的那一条为关键路径。假定现在上午一点，对于外壳完成事件而言，为了不影响工期：外壳完成活动最早也就是一点开始动工，最晚在两点必须要开始动工。最大权值3表示所有活动必须在三小时之后完成，而外壳完成只需要2个小时。所以，这个中间的空闲时间有一个小时，为了不影响整个工期，它必须最迟两点动工。那么才可以保证3点时与发动机完成活动同时竣工，为后续的活动做好准备。</p>
+</blockquote>
+<p><img src="http://i.imgur.com/dH9tbMv.png" alt=""></p>
+<ul>
+<li><p>对AOE网有待研究的问题是：</p>
+<ul>
+<li><p>（1）完成整个工程至少需要多少时间？</p>
+</li>
+<li><p>（2）那些活动是影响工程进度的关键？</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://i.imgur.com/BJpeYut.png" alt=""></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="http://www.cnblogs.com/Braveliu/p/3461649.html" rel="external nofollow noopener noreferrer" target="_blank">数据结构图之六（关键路径）</a></li>
+<li><a href="http://blog.csdn.net/flying0033/article/details/6994088" rel="external nofollow noopener noreferrer" target="_blank">图的关键路径算法</a></li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/数据结构与算法-Data Structure and Algorithm/图-Graph/最短路径问题-无权图的单源最短路径（BFS）、有权图的单源最短路径（Dijkstra）、多源最短路经（Floyd）/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más viejo</strong>
+            <div class="article-nav-title">图的最短路径问题-无权图的单源最短路径（BFS）、有权图的单源最短路径（Dijkstra）、多源最短路经（Floyd）</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Xiu &copy; 2018 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
